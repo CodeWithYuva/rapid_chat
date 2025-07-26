@@ -244,7 +244,7 @@ With access to a GPU (e.g., Tesla T4), the issue can be resolved by:
 * Optimizing chunk size and batching
 
 **⏱ Estimated Fix Time: 1–2 hours (with GPU)**
-
+***NOTE: when using GPU we can use other large models for more accurate answer***
 ---
 
 **Made with 💻 + ☕ by Yuvaraj M & YogeshWaran**
