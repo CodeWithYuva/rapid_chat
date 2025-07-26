@@ -40,7 +40,10 @@ if user_input:
     if not retrieved_chunks:
         st.warning("No relevant documents found.")
     else:
-        answer = generate_answer(user_input, retrieved_chunks)
+        newstart = time.time()
+        answer = generate_answer(user_input,retrieved_chunks )
+        end_time = time.time()- newstart
+        st.success(f"Answer generated in {end_time:.2f} seconds.")
         duration = time.time() - start_time
 
         # Show Answer
