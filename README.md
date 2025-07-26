@@ -1,5 +1,4 @@
 
-markdown
 # 🧠 RAG-based Document Chatbot
 
 A **Retrieval-Augmented Generation (RAG)** chatbot that can accurately answer questions based solely on the contents of uploaded PDF and DOCX files. This system is designed to run locally (offline) using only **open-source models and tools**.
@@ -13,7 +12,7 @@ A **Retrieval-Augmented Generation (RAG)** chatbot that can accurately answer qu
 ✅ Smart hybrid chunking strategy  
 ✅ Uses **Qdrant** as the vector DB  
 ✅ Displays exact **source filename, page, and chunk ID**  
-✅ Built for speed: ⏱️ <15s response time on GPU and average of 50s and <100s time on CPU  
+✅ Built for speed: ⏱️ <15s response time on GPU and average of 30s-40s time on CPU  
 ✅ Completely **offline**
 
 ---
