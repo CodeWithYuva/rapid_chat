@@ -1,10 +1,10 @@
 
-````markdown
+markdown
 # 🧠 RAG-based Document Chatbot
 
 A **Retrieval-Augmented Generation (RAG)** chatbot that can accurately answer questions based solely on the contents of uploaded PDF and DOCX files. This system is designed to run locally (offline) using only **open-source models and tools**.
 
----
+
 
 ## 📋 Features
 
