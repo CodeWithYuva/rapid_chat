@@ -1,9 +1,47 @@
 import docx
 import fitz  # PyMuPDF
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import os
+import torch
 
-# Load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("microsoft/phi-1_5")
+
+model_id = "microsoft/phi-1_5"
+local_model_path = "local_models/phi-1_5"
+
+# Check if the model/tokenizer is already saved locally
+def is_model_cached(path):
+    return os.path.isdir(path) 
+
+# Load and optionally save
+if is_model_cached(local_model_path):
+    print(" Using local model files...")
+    tokenizer = AutoTokenizer.from_pretrained(local_model_path, local_files_only=True)
+    llm = AutoModelForCausalLM.from_pretrained(
+        local_model_path,
+        torch_dtype=torch.float32,
+        local_files_only=True,
+        device_map={"": "cpu"},
+        do_sample=False
+    )
+else:
+    print(" Downloading model from Hugging Face and saving locally...")
+    tokenizer = AutoTokenizer.from_pretrained(model_id)
+    llm = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        torch_dtype=torch.float32,
+        device_map={"": "cpu"},
+        do_sample=False
+    )
+
+    # Try saving locally
+    try:
+        llm.save_pretrained(local_model_path)
+        tokenizer.save_pretrained(local_model_path)
+        print(" Model saved to local_models/phi-1_5")
+    except Exception as e:
+        print(f" Could not save model: {e}")
+
+
 
 MAX_TOKENS = 100
 MIN_TOKENS = 60

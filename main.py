@@ -3,13 +3,12 @@ from rag_bot.utils.document_loader import process_file
 from rag_bot.utils.embedding import get_embedding, get_batch_embeddings
 from rag_bot.utils.qdrant_manager import insert_documents, search
 from rag_bot.utils.llm import generate_answer
-import tempfile
 import GPUtil
 import psutil
 import time
 
 st.set_page_config(page_title="Offline RAG Chatbot", layout="wide")
-st.title("📚 Offline RAG Chatbot with Qdrant + Phi-1.5")
+st.title("🤖 Offline RAG Chatbot ")
 
 # Session State
 if "history" not in st.session_state:
@@ -67,7 +66,7 @@ if st.session_state.history:
         st.markdown(f"**A{i+1}:** {entry['a']}")
         for chunk in entry["chunks"]:
             st.markdown(f"📄 **{chunk['source']}**, page {chunk['page']}, chunk `{chunk['chunk_id']}`")
-        st.markdown(f"⏱ *Response Time: {entry['time']:.2f} sec*")
+        
         st.markdown("---")
 
 # Memory Usage

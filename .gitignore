@@ -36,3 +36,4 @@ model_cache/
 chunks.json
 uploads/
 documents/
+local_models/

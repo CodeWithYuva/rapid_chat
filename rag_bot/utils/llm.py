@@ -1,19 +1,21 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
-model_id = "microsoft/phi-2" 
-#microsoft/phi-1_5
-#TinyLlama/TinyLlama-1.1B-Chat-v1.0
+model_id_path = "local_models/phi-1_5" 
+#microsoft/phi-1_5 for speed than phi-2 but less accurate
+#TinyLlama/TinyLlama-1.1B-Chat-v1.0 for faster inference but less accurate
+#phi-2 is a large model so it takes more time to load and run in first time 
 
-tokenizer = AutoTokenizer.from_pretrained(model_id)
+tokenizer = AutoTokenizer.from_pretrained(model_id_path,local_files_only=True)
 
 llm = AutoModelForCausalLM.from_pretrained(
-    model_id,
+    model_id_path,
     do_sample=False,
     torch_dtype=torch.float32,
-  
+    local_files_only=True,
     device_map={"": "cpu"} 
 )
+
 
 def build_prompt(query, chunks):
     context = "\n\n".join([f"{i+1}. {c['text']}" for i, c in enumerate(chunks)])
