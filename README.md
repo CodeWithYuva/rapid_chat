@@ -204,20 +204,10 @@ Efficient for both small documents and large multi-pages. Also suitable for batc
 
 ---
 
-## 🧪 Example Queries & Results
-
-Available in the [`response_samples.pdf`](#) (See repo)
-Includes 10 test queries with:
-
-* Query text
-* Screenshot of chatbot response
-* Source (filename, page, chunk ID)
-
----
 
 ## 🎥 Demo Video
 
-📹 [Watch the live demo (Unedited, full run)](https://example.com/demo-video)
+📹 [Watch the live demo (Unedited, full run)]([https://example.com/demo-video](https://drive.google.com/file/d/1dgwVuMHwoibjfOnpZIDe1ya_gsCLFNsj/view?usp=sharing ))
 ✅ Face visible
 ✅ Real-time questions
 ✅ Full app run from scratch
