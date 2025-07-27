@@ -126,9 +126,8 @@ def process_docx(file, name="docx_file"):
             }
         })
 
-    print(f"✅ Smart-chunked into {len(final)} chunks (~{MAX_TOKENS} tokens each).")
-    for i, c in enumerate(final[:3]):
-        print(f"\nChunk {i+1}:\n{c['text']}\n{'-'*40}")
+    print(f" Smart-chunked into {len(final)} chunks (~{MAX_TOKENS} tokens each).")
+    
     return final
 
 def process_pdf(file, name="pdf_file"):
@@ -149,9 +148,8 @@ def process_pdf(file, name="pdf_file"):
                 }
             })
 
-    print(f"✅ Smart-chunked into {len(all_chunks)} chunks from PDF (~{MAX_TOKENS} tokens each).")
-    for i, c in enumerate(all_chunks[:5]):
-        print(f"\nChunk {i+1}:\n{c['text']}\n{'-'*40}")
+    print(f" Smart-chunked into {len(all_chunks)} chunks from PDF (~{MAX_TOKENS} tokens each).")
+    
     return all_chunks
 
 def process_file(file):
